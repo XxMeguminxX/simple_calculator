@@ -10,8 +10,13 @@ function appendNumber(number) {
 }
 
 function appendOperator(operator) {
-    if (currentInput === '') return;
+    if (currentInput === '' && previousInput === '') return;
     
+    if (currentInput === '') {
+        operation = operator;
+        updateDisplay();
+        return;
+    }
     if (previousInput !== '') {
         calculate();
     }
